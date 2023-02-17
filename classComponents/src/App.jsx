@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import coatImage from './assets/item-blue.jpg'
+import './App.css';
+import React from 'react';
 
 class Shop extends React.Component{
   constructor(props){
@@ -17,7 +19,7 @@ class Shop extends React.Component{
       <div className="highlight-window mobile"><div class="highlight-overlay"></div></div>
       <div className="divider"></div>
       <div className="purchase-info">
-        <div className="price">{this.props.item.currency + (this.props.item.price)}</div>
+        <div className="price">{this.props.item.currency + (this.props.item.price).toFixed(2)}</div>
         <button>Добавить в корзину</button>
       </div>
     </div>
@@ -38,7 +40,9 @@ function App() {
     <div className="container">
       <div className="background-element"></div>
       <div className="highlight-window">
-        <div className='highlight-overlay'></div>
+        <div className='highlight-overlay'>
+          <img className='coat-img' src={coatImage} alt='coat' />
+        </div>
       </div>
       <div className="window">
         <Shop item = {item} />
